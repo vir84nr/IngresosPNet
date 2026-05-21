@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INGRESOS PNET</title>
+    <script src="https://cdn.jsdelivr.net/npm/pizzip@3.1.8/dist/pizzip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.23.1/docxtemplater.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" defer></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        .resaltado {
+            border: 1px solid rgb(61, 101, 138);
+            font-style: italic;
+        }
+        .resaltado2 {
+            font-weight: bold;
+            color: rgb(61, 101, 138);
+        }
+        .resaltado3 {
+            font-weight: bold;
+            color: rgb(8, 8, 8);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="d-flex align-items-center justify-content-between">
+            <img src="https://www.dropbox.com/scl/fi/eitrp66n5icumupd76w87/favicon.ico?rlkey=ygoqwtgyex4ymdib4tdzinyky&st=colov3n7&raw=1" class="rounded img-fluid" style="width: 70px; height: auto;" alt="Icono">
+            <h1 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0;">INGRESOS PNET</h1>
+            <img src="https://www.dropbox.com/scl/fi/eitrp66n5icumupd76w87/favicon.ico?rlkey=ygoqwtgyex4ymdib4tdzinyky&st=colov3n7&raw=1" class="rounded img-fluid" style="width: 70px; height: auto;" alt="Icono">
+        </div>
+        <hr style="border-top: 3px solid rgb(61, 101, 138); margin-top: 20px;"></hr>
+
+        <!-- Formulario de ingreso de datos -->
+        <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0;">Ingresar Datos</h2>
+        <div class="text-center mt-3">
+            <input type="text" id="dato1" class="form-control mb-2" placeholder="Usuario">
+            <input type="date" id="dato2" class="form-control mb-2">
+            <select id="dato3" class="form-control mb-2">
+                <option value="" disabled selected>Edificio...</option>
+                <option value="Reconquista">Reconquista</option>
+                <option value="Polo">Polo</option>
+                <option value="Calderon">Calderon</option>
+            </select>
+            <select id="dato4" class="form-control mb-2">
+                <option value="" disabled selected>Puesto...</option>
+                <option value="Abogada /o">Abogado</option>
+<option value="Administrador de Base de Datos">Administrador de Base de Datos</option>
+<option value="Administrador Linux">Administrador Linux</option>
+<option value="Administrativo">Administrativo</option>
+<option value="Administrativo">Administrativo</option>
+<option value="Analista de Catálogo">Analista de Catálogo</option>
+<option value="Analista de Categoría">Analista de Categoría</option>
+<option value="Analista de contabilidad">Analista de contabilidad</option>
+<option value="Analista de Datos">Analista de Datos</option>
+<option value="Analista de experiencia de usuario">Analista de experiencia de usuario</option>
+<option value="Analista de Mejora Continua Ssr.">Analista Mejora Continua Ssr.</option>
+<option value="Analista de Mesa de Ayuda">Analista de Mesa de Ayuda</option>
+<option value="Analista de precios">Analista de precios</option>
+<option value="Analista de seguridad informática">Analista de seguridad informática</option>
+<option value="Analista de soporte aplicativo">Analista de soporte aplicativo</option>
+<option value="Analista funcional">Analista funcional</option>
+<option value="Analista Onboarding">Analista Onboarding</option>
+<option value="Coordinador">Coordinador</option>
+<option value="Coordinador de Monitoreo">Coordinador de Monitoreo</option>
+<option value="Desarrollador">Desarrollador</option>
+<option value="Desarrollador Full Stack">Desarrollador Full Stack</option>
+<option value="Desarrollador PHP">Desarrollador PHP</option>
+<option value="Desarrollador Python">Desarrollador Python</option>
+<option value="DevOps">DevOps</option>
+<option value="Diseñadora UX/UI">Diseñadora UX/UI</option>
+<option value="Ingeniero de datos">Ingeniero de datos</option>
+<option value="Product Owner">Product Owner</option>
+<option value="Project Manager">Project Manager</option>
+<option value="Scrum Master">Scrum Master</option>
+<option value="Soporte de Agencias">Soporte de Agencias</option>
+<option value="Soporte Microinformático">Soporte Microinformático</option>
+<option value="Supervisor /a">Supervisor /a</option>
+<option value="Teleoperador">Teleoperador</option>
+<option value="Tester QA">Tester QA</option>
+<option value="Técnico de Depósito Microinformático">Técnico de Depósito Microinformático</option>
+<option value="Otro">Otro</option>
+            </select>
+            <input type="text" id="equipoEntregado" class="form-control mb-2" placeholder="Equipo a entregar (Opcional)">
+            <button class="btn btn-info btn-sm" onclick="guardarDato()">Guardar</button>
+        </div>
+
+        <!-- Filtros -->
+        <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0">Filtrar Datos</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Fecha de Ingreso:</label>
+                <input type="date" id="filtroFecha" class="form-control" onchange="filtrarDatos()">
+            </div>
+            <div class="col-md-3">
+                <label>Edificio:</label>
+                <select id="filtroEdificio" class="form-control" onchange="filtrarDatos()">
+                    <option value="">Todos</option>
+                    <option value="Reconquista">Reconquista</option>
+                    <option value="Polo">Polo</option>
+                    <option value="Calderon">Calderon</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Puesto:</label>
+                <select id="filtroPuesto" class="form-control" onchange="filtrarDatos()">
+                    <option value="">Todos</option>
+                    <option value="Desarrollador">Desarrollador</option>
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Analista Mejora Continua Ssr">Analista Mejora Continua Ssr</option>
+                    <option value="Analista de soporte aplicativo">Analista de soporte aplicativo</option>
+                    <option value="Project Manager">Project Manager</option>
+                    <option value="Diseñadora UX/UI">Diseñadora UX/UI</option>
+                    <option value="Coordinador">Coordinador</option>
+                    <option value="Analista Onboarding">Analista Onboarding</option>
+                    <option value="Coordinador de Monitoreo">Coordinador de Monitoreo</option>
+                    <option value="Desarrollador PHP">Desarrollador PHP</option>
+                    <option value="Teleoperador">Teleoperador</option>
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Analista de Datos">Analista de Datos</option>
+                    <option value="Analista funcional">Analista funcional</option>
+                    <option value="DevOps">DevOps</option>
+                    <option value="Desarrollador Python">Desarrollador Python</option>
+                    <option value="Analista de Catálogo">Analista de Catálogo</option>
+                    <option value="Tester QA">Tester QA</option>
+                    <option value="Abogada /o">Abogada /o</option>
+                    <option value="Scrum Master">Scrum Master</option>
+                    <option value="Product Owner">Product Owner</option>
+                    <option value="Administrador de Base de Datos">Administrador de Base de Datos</option>
+                    <option value="Administrador Linux">Administrador Linux</option>
+                    <option value="Desarrollador Full Stack">Desarrollador Full Stack</option>
+                    <option value="Analista de Categoría">Analista de Categoría</option>
+                    <option value="Soporte de Agencias">Soporte de Agencias</option>
+                    <option value="Analista de experiencia de usuario">Analista de experiencia de usuario</option>
+                    <option value="Analista de contabilidad">Analista de contabilidad</option>
+                    <option value="Ingeniero de datos">Ingeniero de datos</option>
+                    <option value="Analista de Mesa de Ayuda">Analista de Mesa de Ayuda</option>
+                    <option value="Analista de seguridad informática">Analista de seguridad informática</option>
+                    <option value="Analista de precios">Analista de precios</option>
+                    <option value="Supervisor /a">Supervisor /a</option>
+                    <option value="Soporte Microinformático">Soporte Microinformático</option>
+                    <option value="Técnico de Depósito Microinformático">Técnico de Depósito Microinformático</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Equipo Entregado:</label>
+                <select id="filtroEquipo" class="form-control" onchange="filtrarDatos()">
+                    <option value="">Todos</option>
+                    <option value="true">Sí</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Lista de ingresos -->
+        <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0">Lista de Ingresos</h2>
+        <ul id="lista" class="list-group mt-3"></ul>
+
+        <!-- Botón de descarga -->
+        <div class="text-end mt-4">
+            <button class="btn btn-success" onclick="descargarExcel()">Descargar Excel</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", cargarDatos);
+
+        function guardarDato() {
+            let usuario = document.getElementById("dato1").value.trim();
+            let fecha = document.getElementById("dato2").value.trim();
+            let edificio = document.getElementById("dato3").value;
+            let puesto = document.getElementById("dato4").value;
+            let equipoEntregado = document.getElementById("equipoEntregado").value.trim();
+
+            if (!usuario || !fecha || !edificio || !puesto) {
+                alert("Faltan completar campos.");
+                return;
+            }
+
+            let datos = JSON.parse(localStorage.getItem("datos")) || [];
+            datos.push({ dato1: usuario, dato2: fecha, dato3: edificio, dato4: puesto, equipoEntregado });
+            localStorage.setItem("datos", JSON.stringify(datos));
+
+            document.getElementById("dato1").value = "";
+            document.getElementById("dato2").value = "";
+            document.getElementById("dato3").selectedIndex = 0;
+            document.getElementById("dato4").selectedIndex = 0;
+            document.getElementById("equipoEntregado").value = "";
+
+            cargarDatos();
+        }
+
+        function cargarDatos() {
+            let datos = JSON.parse(localStorage.getItem("datos")) || [];
+            mostrarDatos(datos);
+        }
+
+        function mostrarDatos(datos) {
+    let lista = document.getElementById("lista");
+    lista.innerHTML = "";
+
+    datos.forEach((item, index) => {
+        let fechaFormateada = "Fecha no válida";
+        if (item.dato2) {
+            let partes = item.dato2.split("-");
+            if (partes.length === 3) {
+                let [año, mes, dia] = partes;
+                fechaFormateada = `${dia.padStart(2, "0")}-${mes.padStart(2, "0")}-${año}`;
+            }
+        }
+
+        let li = document.createElement("li");
+        li.classList.add("list-group-item");
+
+        li.innerHTML = `
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p><strong>Ingreso:</strong> <span contenteditable="true" class="editable resaltado2" data-id="${index}" data-field="dato2">${fechaFormateada}</span></p>
+                        <p><strong>Usuario:</strong> <span contenteditable="true" class="editable resaltado3" data-id="${index}" data-field="dato1">${item.dato1}</span></p>
+                        <p><strong>Edificio:</strong> <span contenteditable="true" class="editable" data-id="${index}" data-field="dato3">${item.dato3}</span></p>
+                        <p><strong>Puesto:</strong> <span contenteditable="true" class="editable" data-id="${index}" data-field="dato4">${item.dato4}</span></p>
+                        <p><strong>Equipo Entregado:</strong> <span contenteditable="true" class="editable resaltado" data-id="${index}" data-field="equipoEntregado">${item.equipoEntregado || 'Cargar modelo y serie'}</span></p>
+                    </div>
+<div class="col-12 col-md-2 d-flex flex-column ms-auto">
+    <button class="btn btn-danger btn-sm w-100 w-md-auto mb-2" onclick="eliminarDato(${index})">Eliminar</button>
+    <button class="btn btn-info btn-sm w-100 w-md-auto mb-2" onclick="generarNota(${index})">Generar Nota</button>
+</div>
+                </div>
+            </div>
+        `;
+
+        lista.appendChild(li);
+    });
+
+    // Permitir edición y guardar cambios automáticamente
+    document.querySelectorAll('.editable').forEach(element => {
+        element.addEventListener('blur', (event) => {
+            let index = event.target.dataset.id;
+            let field = event.target.dataset.field;
+            let value = event.target.innerText.trim();
+
+            let datos = JSON.parse(localStorage.getItem("datos")) || [];
+            if (datos[index]) {
+                datos[index][field] = value;
+                localStorage.setItem("datos", JSON.stringify(datos));
+            }
+        });
+    });
+}
+
+
+        function eliminarDato(index) {
+            let datos = JSON.parse(localStorage.getItem("datos")) || [];
+            datos.splice(index, 1);
+            localStorage.setItem("datos", JSON.stringify(datos));
+            cargarDatos();
+        }
+
+        function filtrarDatos() {
+            let fechaFiltro = document.getElementById("filtroFecha").value;
+            let edificioFiltro = document.getElementById("filtroEdificio").value;
+            let puestoFiltro = document.getElementById("filtroPuesto").value;
+            let equipoFiltro = document.getElementById("filtroEquipo").value;
+
+            let datos = JSON.parse(localStorage.getItem("datos")) || [];
+            let filtrados = datos.filter(item =>
+                (fechaFiltro === "" || item.dato2 === fechaFiltro) &&
+                (edificioFiltro === "" || item.dato3 === edificioFiltro) &&
+                (puestoFiltro === "" || item.dato4 === puestoFiltro) &&
+                (equipoFiltro === "" || (equipoFiltro === 'true' && item.equipoEntregado !== "") || (equipoFiltro === 'false' && item.equipoEntregado === ""))
+            );
+
+            mostrarDatos(filtrados);
+        }
+        
+        function descargarExcel() {
+    let datos = JSON.parse(localStorage.getItem("datos")) || [];
+    if (datos.length === 0) {
+        alert("No hay datos para exportar.");
+        return;
+    }
+
+    // Renombrar las claves de los datos para mejorar los encabezados del archivo Excel
+    let datosModificados = datos.map((item, index) => ({
+        "ID": index + 1,
+        "Usuario": item.dato1,
+        "Fecha de Ingreso": item.dato2,
+        "Edificio": item.dato3,
+        "Puesto": item.dato4
+    }));
+
+    // Crear la hoja de cálculo con los nuevos encabezados
+    let ws = XLSX.utils.json_to_sheet(datosModificados);
+    let wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Datos");
+
+    // Descargar el archivo Excel
+    XLSX.writeFile(wb, "LISTADO-de-INGRESOS.xlsx");
+}
+
+  
+
+        async function generarNota(index) {
+            let datos = JSON.parse(localStorage.getItem("datos")) || [];
+            let usuario = datos[index].dato1;
+            let equipo = datos[index].equipoEntregado || "No especificado";
+
+            console.log("Generando nota para:", usuario, "con equipo:", equipo);
+
+            try {
+                // 1. Cargar la plantilla
+                let response = await fetch("https://dl.dropboxusercontent.com/scl/fi/ycuw0lqxd7pdwaifzki1r/plantilla.docx?rlkey=9hxcmam06ev63mv255d5lan5s");
+                if (!response.ok) {
+                    throw new Error("No se pudo cargar la plantilla. Verifica la ruta y el archivo.");
+                }
+                let arrayBuffer = await response.arrayBuffer();
+                console.log("Plantilla cargada correctamente.");
+
+                // 2. Procesar la plantilla con docxtemplater
+                let zip = new PizZip(arrayBuffer);
+                let doc;
+                try {
+                    doc = new docxtemplater().loadZip(zip);
+                } catch (error) {
+                    console.error("Error al cargar el archivo ZIP:", error);
+                    return;
+                }
+
+                // 3. Reemplazar placeholders con los datos
+                doc.setData({
+                    nombre: usuario,
+                    equipo: equipo
+                });
+
+                try {
+                    doc.render(); // Renderizar el documento
+                    console.log("Documento renderizado correctamente.");
+                } catch (error) {
+                    console.error("Error al renderizar el documento:", error);
+                    console.error("Detalles:", {
+                        message: error.message,
+                        name: error.name,
+                        stack: error.stack,
+                        properties: error.properties
+                    });
+                    return;
+                }
+
+                // 4. Generar el archivo Word
+                let blob = doc.getZip().generate({ type: "blob" });
+                saveAs(blob, `Nota_Entrega_${usuario}.docx`);
+                console.log("Nota generada y descargada correctamente.");
+            } catch (error) {
+                console.error("Error al generar la nota:", error);
+            }
+        }
+        
+
+    </script>
+</body>
+</html>
