@@ -51,6 +51,7 @@
         <hr style="border-top: 3px solid rgb(61, 101, 138); margin-top: 20px;"></hr>
 
         <!-- Formulario de ingreso de datos -->
+
         <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0;">Ingresar Datos</h2>
         <div class="text-center mt-3">
             <input type="text" id="dato1" class="form-control mb-2" placeholder="Usuario">
@@ -60,6 +61,29 @@
                 <option value="Reconquista">Reconquista</option>
                 <option value="Polo">Polo</option>
                 <option value="Calderon">Calderon</option>
+            </select>
+            <select id="dato6" class="form-control mb-2">
+                <option value="" disabled selected>Gerencia...</option>
+                <option value="Presidencia">Presidencia</option>
+                <option value="Directorio">Directorio</option>
+                <option value="Gerencia Centro de Contactos">Gerencia Centro de Contactos</option>
+<option value="Gerencia de E-commerce">Gerencia de E-commerce</option>
+<option value="Gerencia de Finanzas">Gerencia de Finanzas</option>
+<option value="Gerencia de Pagos Digitales">Gerencia de Pagos Digitales</option>
+<option value="Gerencia de Proyectos Internos IT">Gerencia de Proyectos Internos IT</option>
+<option value="Gerencia de Estrategia y Desarrollo de Negocios">Gerencia de Estrategia y Desarrollo de Negocios</option>
+<option value="Gerencia de Marketing">Gerencia de Marketing</option>
+<option value="Gerencia General">Gerencia General</option>
+<option value="Gerencia de Pagos Moviles">Gerencia de Pagos Moviles</option>
+<option value="Gerencia de Procesos y Riesgos">Gerencia de Procesos y Riesgos</option>
+<option value="Gerente de  Administracion">Gerente de  Administracion</option>
+<option value="Gerencia de Operaciones">Gerencia de Operaciones</option>
+<option value="Gerencia de Gestion de Personas">Gerencia de Gestion de Personas</option>    
+<option value="Gerencia de Comercial">Gerencia de Comercial</option>
+<option value="Gerentecia de Soporte y Operaciones IT">Gerentecia de Soporte y Operaciones IT</option>
+<option value="Gerentecia de Legales">Gerentecia de Legales</option>
+<option value="Gerencia de Proyectos Comerciales IT">Gerencia de Proyectos Comerciales IT</option>
+<option value="Otro">Otro</option>
             </select>
             <select id="dato4" class="form-control mb-2">
                 <option value="" disabled selected>Puesto...</option>
@@ -105,6 +129,7 @@
         </div>
 
         <!-- Filtros -->
+
         <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0">Filtrar Datos</h2>
         <div class="row">
             <div class="col-md-3">
@@ -120,7 +145,34 @@
                     <option value="Calderon">Calderon</option>
                 </select>
             </div>
-            <div class="col-md-3">
+                        <div class="col-md-2">
+                <label>Gerencia:</label>
+                <select id="filtroGerencia" class="form-control" onchange="filtrarDatos()">
+                    <option value="">Todos</option>
+                <option value="Presidencia">Presidencia</option>
+                <option value="Directorio">Directorio</option>
+                <option value="Gerencia Centro de Contactos">Gerencia Centro de Contactos</option>
+<option value="Gerencia de E-commerce">Gerencia de E-commerce</option>
+<option value="Gerencia de Finanzas">Gerencia de Finanzas</option>
+<option value="Gerencia de Pagos Digitales">Gerencia de Pagos Digitales</option>
+<option value="Gerencia de Proyectos Internos IT">Gerencia de Proyectos Internos IT</option>
+<option value="Gerencia de Estrategia y Desarrollo de Negocios">Gerencia de Estrategia y Desarrollo de Negocios</option>
+<option value="Gerencia de Marketing">Gerencia de Marketing</option>
+<option value="Gerencia General">Gerencia General</option>
+<option value="Gerencia de Pagos Moviles">Gerencia de Pagos Moviles</option>
+<option value="Gerencia de Procesos y Riesgos">Gerencia de Procesos y Riesgos</option>
+<option value="Gerente de  Administracion">Gerente de  Administracion</option>
+<option value="Gerencia de Operaciones">Gerencia de Operaciones</option>
+<option value="Gerencia de Gestion de Personas">Gerencia de Gestion de Personas</option>    
+<option value="Gerencia de Comercial">Gerencia de Comercial</option>
+<option value="Gerentecia de Soporte y Operaciones IT">Gerentecia de Soporte y Operaciones IT</option>
+<option value="Gerentecia de Legales">Gerentecia de Legales</option>
+<option value="Gerencia de Proyectos Comerciales IT">Gerencia de Proyectos Comerciales IT</option>
+<option value="Otro">Otro</option>
+
+                </select>
+            </div>
+            <div class="col-md-2">
                 <label>Puesto:</label>
                 <select id="filtroPuesto" class="form-control" onchange="filtrarDatos()">
                     <option value="">Todos</option>
@@ -162,7 +214,7 @@
                     <option value="Otro">Otro</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label>Equipo Entregado:</label>
                 <select id="filtroEquipo" class="form-control" onchange="filtrarDatos()">
                     <option value="">Todos</option>
@@ -223,21 +275,23 @@ function login() {
             let usuario = document.getElementById("dato1").value.trim();
             let fecha = document.getElementById("dato2").value.trim();
             let edificio = document.getElementById("dato3").value;
+            let gerencia = document.getElementById("dato6").value;
             let puesto = document.getElementById("dato4").value;
             let equipoEntregado = document.getElementById("equipoEntregado").value.trim();
 
-            if (!usuario || !fecha || !edificio || !puesto) {
+            if (!usuario || !fecha || !edificio) {
                 alert("Faltan completar campos.");
                 return;
             }
 
             let datos = JSON.parse(localStorage.getItem("datos")) || [];
-            datos.push({ dato1: usuario, dato2: fecha, dato3: edificio, dato4: puesto, equipoEntregado });
+            datos.push({ dato1: usuario, dato2: fecha, dato3: edificio, dato6: gerencia, dato4: puesto, equipoEntregado });
             localStorage.setItem("datos", JSON.stringify(datos));
 
             document.getElementById("dato1").value = "";
             document.getElementById("dato2").value = "";
             document.getElementById("dato3").selectedIndex = 0;
+            document.getElementById("dato6").value = "";
             document.getElementById("dato4").selectedIndex = 0;
             document.getElementById("equipoEntregado").value = "";
 
@@ -273,6 +327,7 @@ function login() {
                         <p><strong>Ingreso:</strong> <span contenteditable="true" class="editable resaltado2" data-id="${index}" data-field="dato2">${fechaFormateada}</span></p>
                         <p><strong>Usuario:</strong> <span contenteditable="true" class="editable resaltado3" data-id="${index}" data-field="dato1">${item.dato1}</span></p>
                         <p><strong>Edificio:</strong> <span contenteditable="true" class="editable" data-id="${index}" data-field="dato3">${item.dato3}</span></p>
+                        <p><strong>Gerencia:</strong> <span contenteditable="true" class="editable" data-id="${index}" data-field="dato6">${item.dato6}</span></p>
                         <p><strong>Puesto:</strong> <span contenteditable="true" class="editable" data-id="${index}" data-field="dato4">${item.dato4}</span></p>
                         <p><strong>Equipo Entregado:</strong> <span contenteditable="true" class="editable resaltado" data-id="${index}" data-field="equipoEntregado">${item.equipoEntregado || 'Cargar modelo y serie'}</span></p>
                     </div>
@@ -314,6 +369,7 @@ function login() {
         function filtrarDatos() {
             let fechaFiltro = document.getElementById("filtroFecha").value;
             let edificioFiltro = document.getElementById("filtroEdificio").value;
+            let gerenciaFiltro = document.getElementById("filtroGerencia").value;
             let puestoFiltro = document.getElementById("filtroPuesto").value;
             let equipoFiltro = document.getElementById("filtroEquipo").value;
 
@@ -321,6 +377,7 @@ function login() {
             let filtrados = datos.filter(item =>
                 (fechaFiltro === "" || item.dato2 === fechaFiltro) &&
                 (edificioFiltro === "" || item.dato3 === edificioFiltro) &&
+                (gerenciaFiltro === "" || item.dato6 === gerenciaFiltro) &&
                 (puestoFiltro === "" || item.dato4 === puestoFiltro) &&
                 (equipoFiltro === "" || (equipoFiltro === 'true' && item.equipoEntregado !== "") || (equipoFiltro === 'false' && item.equipoEntregado === ""))
             );
@@ -341,6 +398,7 @@ function login() {
         "Usuario": item.dato1,
         "Fecha de Ingreso": item.dato2,
         "Edificio": item.dato3,
+        "gerencia": item.dato6,
         "Puesto": item.dato4
     }));
 
