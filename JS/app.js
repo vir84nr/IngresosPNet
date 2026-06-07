@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const usuarios = {
     "Reconquista": "Recon1234", 
     "Polo": "Pol1234",
-    "Calderon": "Cal1234!"
+    "Calderon": "Cal1234"
 };
 
 function login() {
