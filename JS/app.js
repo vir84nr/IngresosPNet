@@ -1,16 +1,12 @@
-
 const API_URL = "https://bkendingresos.onrender.com/ingresos";
 
 // =======================
 //  INIT
 // =======================
 document.addEventListener("DOMContentLoaded", () => {
-    // conectar botón login
     document.getElementById("btnLogin").addEventListener("click", login);
 
-    // verificar sesión
     let user = localStorage.getItem("usuarioLogueado");
-
     if (user) {
         document.getElementById("loginScreen").style.display = "none";
         document.getElementById("app").style.display = "block";
@@ -22,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // LOGIN (FRONTEND)
 // =======================
 const usuarios = {
-    "Reconquista": "Recon1234",
-    "Polo": "Pol1234",
-    "Calderon": "Cal1234"
+    "Reconquista": "Rcq.Pnet#2026!", // Robustecida para evitar alerta de Chrome
+    "Polo": "Pl.Pnet#2026!",
+    "Calderon": "Cld.Pnet#2026!"
 };
 
 function login() {
@@ -120,7 +116,7 @@ function mostrarDatos(datos) {
     datos.forEach((item) => {
         let fechaFormateada = "Fecha no válida";
 
-        if (item.fecha) { // Usamos la propiedad del backend (.fecha)
+        if (item.fecha) {
             let partes = item.fecha.split("-");
             if (partes.length === 3) {
                 let [año, mes, dia] = partes;
@@ -320,7 +316,7 @@ function limpiarFormulario() {
     document.getElementById("dato1").value = "";
     document.getElementById("dato2").value = "";
     document.getElementById("dato3").selectedIndex = 0;
-    document.getElementById("dato6").value = "";
-    document.getElementById("dato4").selectedIndex = 0;
+    document.getElementById("dato6").selectedIndex = 0; // Cambiado a selectedIndex de forma uniforme
+    document.getElementById("dato4").selectedIndex = 0; // Cambiado a selectedIndex de forma uniforme
     document.getElementById("equipoEntregado").value = "";
 }

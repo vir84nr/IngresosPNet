@@ -24,33 +24,28 @@
             font-weight: bold;
             color: rgb(8, 8, 8);
         }
-        
     </style>
-    
 </head>
 <body>
     
-<div id="loginScreen" class="col-md-3  mx-auto text-center justify-content-center" >
-    <h2>LOGIN</h2>
-    <input type="text" id="loginUser" class="form-control mb-2" placeholder="Usuario">
-    <input type="password" id="loginPass" class="form-control mb-2" placeholder="Contraseña">
-    <button class="btn btn-primary" id="btnLogin">Ingresar</button>
-</div>
+    <div id="loginScreen" class="col-md-3  mx-auto text-center justify-content-center" >
+        <h2>LOGIN</h2>
+        <input type="text" id="loginUser" class="form-control mb-2" placeholder="Usuario">
+        <input type="password" id="loginPass" class="form-control mb-2" placeholder="Contraseña">
+        <button class="btn btn-primary" id="btnLogin">Ingresar</button>
+    </div>
  
     <div class="container mt-4" id="app" style="display:none;">
-
-<div class="text-end mb-3">
-    <button class="btn btn-danger btn-sm" onclick="logout()">Salir</button>
-</div>
+        <div class="text-end mb-3">
+            <button class="btn btn-danger btn-sm" onclick="logout()">Salir</button>
+        </div>
 
         <div class="d-flex align-items-center justify-content-between">
             <img src="https://www.dropbox.com/scl/fi/eitrp66n5icumupd76w87/favicon.ico?rlkey=ygoqwtgyex4ymdib4tdzinyky&st=colov3n7&raw=1" class="rounded img-fluid" style="width: 70px; height: auto;" alt="Icono">
             <h1 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0;">INGRESOS PNET</h1>
             <img src="https://www.dropbox.com/scl/fi/eitrp66n5icumupd76w87/favicon.ico?rlkey=ygoqwtgyex4ymdib4tdzinyky&st=colov3n7&raw=1" class="rounded img-fluid" style="width: 70px; height: auto;" alt="Icono">
         </div>
-        <hr style="border-top: 3px solid rgb(61, 101, 138); margin-top: 20px;"></hr>
-
-        <!-- Formulario de ingreso de datos -->
+        <hr style="border-top: 3px solid rgb(61, 101, 138); margin-top: 20px;">
 
         <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0;">Ingresar Datos</h2>
         <div class="text-center mt-3">
@@ -67,68 +62,65 @@
                 <option value="Presidencia">Presidencia</option>
                 <option value="Directorio">Directorio</option>
                 <option value="Gerencia Centro de Contactos">Gerencia Centro de Contactos</option>
-<option value="Gerencia de E-commerce">Gerencia de E-commerce</option>
-<option value="Gerencia de Finanzas">Gerencia de Finanzas</option>
-<option value="Gerencia de Pagos Digitales">Gerencia de Pagos Digitales</option>
-<option value="Gerencia de Proyectos Internos IT">Gerencia de Proyectos Internos IT</option>
-<option value="Gerencia de Estrategia y Desarrollo de Negocios">Gerencia de Estrategia y Desarrollo de Negocios</option>
-<option value="Gerencia de Marketing">Gerencia de Marketing</option>
-<option value="Gerencia General">Gerencia General</option>
-<option value="Gerencia de Pagos Moviles">Gerencia de Pagos Moviles</option>
-<option value="Gerencia de Procesos y Riesgos">Gerencia de Procesos y Riesgos</option>
-<option value="Gerente de  Administracion">Gerente de  Administracion</option>
-<option value="Gerencia de Operaciones">Gerencia de Operaciones</option>
-<option value="Gerencia de Gestion de Personas">Gerencia de Gestion de Personas</option>    
-<option value="Gerencia de Comercial">Gerencia de Comercial</option>
-<option value="Gerentecia de Soporte y Operaciones IT">Gerentecia de Soporte y Operaciones IT</option>
-<option value="Gerentecia de Legales">Gerentecia de Legales</option>
-<option value="Gerencia de Proyectos Comerciales IT">Gerencia de Proyectos Comerciales IT</option>
-<option value="Otro">Otro</option>
+                <option value="Gerencia de E-commerce">Gerencia de E-commerce</option>
+                <option value="Gerencia de Finanzas">Gerencia de Finanzas</option>
+                <option value="Gerencia de Pagos Digitales">Gerencia de Pagos Digitales</option>
+                <option value="Gerencia de Proyectos Internos IT">Gerencia de Proyectos Internos IT</option>
+                <option value="Gerencia de Estrategia y Desarrollo de Negocios">Gerencia de Estrategia y Desarrollo de Negocios</option>
+                <option value="Gerencia de Marketing">Gerencia de Marketing</option>
+                <option value="Gerencia General">Gerencia General</option>
+                <option value="Gerencia de Pagos Moviles">Gerencia de Pagos Moviles</option>
+                <option value="Gerencia de Procesos y Riesgos">Gerencia de Procesos y Riesgos</option>
+                <option value="Gerente de  Administracion">Gerente de  Administracion</option>
+                <option value="Gerencia de Operaciones">Gerencia de Operaciones</option>
+                <option value="Gerencia de Gestion de Personas">Gerencia de Gestion de Personas</option>    
+                <option value="Gerencia de Comercial">Gerencia de Comercial</option>
+                <option value="Gerentecia de Soporte y Operaciones IT">Gerentecia de Soporte y Operaciones IT</option>
+                <option value="Gerentecia de Legales">Gerentecia de Legales</option>
+                <option value="Gerencia de Proyectos Comerciales IT">Gerencia de Proyectos Comerciales IT</option>
+                <option value="Otro">Otro</option>
             </select>
             <select id="dato4" class="form-control mb-2">
                 <option value="" disabled selected>Puesto...</option>
-                <option value="Abogada /o">Abogado</option>
-<option value="Administrador de Base de Datos">Administrador de Base de Datos</option>
-<option value="Administrador Linux">Administrador Linux</option>
-<option value="Administrativo">Administrativo</option>
-<option value="Administrativo">Administrativo</option>
-<option value="Analista de Catálogo">Analista de Catálogo</option>
-<option value="Analista de Categoría">Analista de Categoría</option>
-<option value="Analista de contabilidad">Analista de contabilidad</option>
-<option value="Analista de Datos">Analista de Datos</option>
-<option value="Analista de experiencia de usuario">Analista de experiencia de usuario</option>
-<option value="Analista de Mejora Continua Ssr.">Analista Mejora Continua Ssr.</option>
-<option value="Analista de Mesa de Ayuda">Analista de Mesa de Ayuda</option>
-<option value="Analista de precios">Analista de precios</option>
-<option value="Analista de seguridad informática">Analista de seguridad informática</option>
-<option value="Analista de soporte aplicativo">Analista de soporte aplicativo</option>
-<option value="Analista funcional">Analista funcional</option>
-<option value="Analista Onboarding">Analista Onboarding</option>
-<option value="Coordinador">Coordinador</option>
-<option value="Coordinador de Monitoreo">Coordinador de Monitoreo</option>
-<option value="Desarrollador">Desarrollador</option>
-<option value="Desarrollador Full Stack">Desarrollador Full Stack</option>
-<option value="Desarrollador PHP">Desarrollador PHP</option>
-<option value="Desarrollador Python">Desarrollador Python</option>
-<option value="DevOps">DevOps</option>
-<option value="Diseñadora UX/UI">Diseñadora UX/UI</option>
-<option value="Ingeniero de datos">Ingeniero de datos</option>
-<option value="Product Owner">Product Owner</option>
-<option value="Project Manager">Project Manager</option>
-<option value="Scrum Master">Scrum Master</option>
-<option value="Soporte de Agencias">Soporte de Agencias</option>
-<option value="Soporte Microinformático">Soporte Microinformático</option>
-<option value="Supervisor /a">Supervisor /a</option>
-<option value="Teleoperador">Teleoperador</option>
-<option value="Tester QA">Tester QA</option>
-<option value="Técnico de Depósito Microinformático">Técnico de Depósito Microinformático</option>
-<option value="Otro">Otro</option>
+                <option value="Abogada /o">Abogada /o</option>
+                <option value="Administrador de Base de Datos">Administrador de Base de Datos</option>
+                <option value="Administrador Linux">Administrador Linux</option>
+                <option value="Administrativo">Administrativo</option>
+                <option value="Analista de Catálogo">Analista de Catálogo</option>
+                <option value="Analista de Categoría">Analista de Categoría</option>
+                <option value="Analista de contabilidad">Analista de contabilidad</option>
+                <option value="Analista de Datos">Analista de Datos</option>
+                <option value="Analista de experiencia de usuario">Analista de experiencia de usuario</option>
+                <option value="Analista de Mejora Continua Ssr.">Analista de Mejora Continua Ssr.</option>
+                <option value="Analista de Mesa de Ayuda">Analista de Mesa de Ayuda</option>
+                <option value="Analista de precios">Analista de precios</option>
+                <option value="Analista de seguridad informática">Analista de seguridad informática</option>
+                <option value="Analista de soporte aplicativo">Analista de soporte aplicativo</option>
+                <option value="Analista funcional">Analista funcional</option>
+                <option value="Analista Onboarding">Analista Onboarding</option>
+                <option value="Coordinador">Coordinador</option>
+                <option value="Coordinador de Monitoreo">Coordinador de Monitoreo</option>
+                <option value="Desarrollador">Desarrollador</option>
+                <option value="Desarrollador Full Stack">Desarrollador Full Stack</option>
+                <option value="Desarrollador PHP">Desarrollador PHP</option>
+                <option value="Desarrollador Python">Desarrollador Python</option>
+                <option value="DevOps">DevOps</option>
+                <option value="Diseñadora UX/UI">Diseñadora UX/UI</option>
+                <option value="Ingeniero de datos">Ingeniero de datos</option>
+                <option value="Product Owner">Product Owner</option>
+                <option value="Project Manager">Project Manager</option>
+                <option value="Scrum Master">Scrum Master</option>
+                <option value="Soporte de Agencias">Soporte de Agencias</option>
+                <option value="Soporte Microinformático">Soporte Microinformático</option>
+                <option value="Supervisor /a">Supervisor /a</option>
+                <option value="Teleoperador">Teleoperador</option>
+                <option value="Tester QA">Tester QA</option>
+                <option value="Técnico de Depósito Microinformático">Técnico de Depósito Microinformático</option>
+                <option value="Otro">Otro</option>
             </select>
             <input type="text" id="equipoEntregado" class="form-control mb-2" placeholder="Equipo a entregar (Opcional)">
             <button class="btn btn-info btn-sm" onclick="guardarDato()">Guardar</button>
         </div>
-
-        <!-- Filtros -->
 
         <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0">Filtrar Datos</h2>
         <div class="row">
@@ -145,71 +137,69 @@
                     <option value="Calderon">Calderon</option>
                 </select>
             </div>
-                        <div class="col-md-2">
+            <div class="col-md-2">
                 <label>Gerencia:</label>
                 <select id="filtroGerencia" class="form-control" onchange="filtrarDatos()">
                     <option value="">Todos</option>
-                <option value="Presidencia">Presidencia</option>
-                <option value="Directorio">Directorio</option>
-                <option value="Gerencia Centro de Contactos">Gerencia Centro de Contactos</option>
-<option value="Gerencia de E-commerce">Gerencia de E-commerce</option>
-<option value="Gerencia de Finanzas">Gerencia de Finanzas</option>
-<option value="Gerencia de Pagos Digitales">Gerencia de Pagos Digitales</option>
-<option value="Gerencia de Proyectos Internos IT">Gerencia de Proyectos Internos IT</option>
-<option value="Gerencia de Estrategia y Desarrollo de Negocios">Gerencia de Estrategia y Desarrollo de Negocios</option>
-<option value="Gerencia de Marketing">Gerencia de Marketing</option>
-<option value="Gerencia General">Gerencia General</option>
-<option value="Gerencia de Pagos Moviles">Gerencia de Pagos Moviles</option>
-<option value="Gerencia de Procesos y Riesgos">Gerencia de Procesos y Riesgos</option>
-<option value="Gerente de  Administracion">Gerente de  Administracion</option>
-<option value="Gerencia de Operaciones">Gerencia de Operaciones</option>
-<option value="Gerencia de Gestion de Personas">Gerencia de Gestion de Personas</option>    
-<option value="Gerencia de Comercial">Gerencia de Comercial</option>
-<option value="Gerentecia de Soporte y Operaciones IT">Gerentecia de Soporte y Operaciones IT</option>
-<option value="Gerentecia de Legales">Gerentecia de Legales</option>
-<option value="Gerencia de Proyectos Comerciales IT">Gerencia de Proyectos Comerciales IT</option>
-<option value="Otro">Otro</option>
-
+                    <option value="Presidencia">Presidencia</option>
+                    <option value="Directorio">Directorio</option>
+                    <option value="Gerencia Centro de Contactos">Gerencia Centro de Contactos</option>
+                    <option value="Gerencia de E-commerce">Gerencia de E-commerce</option>
+                    <option value="Gerencia de Finanzas">Gerencia de Finanzas</option>
+                    <option value="Gerencia de Pagos Digitales">Gerencia de Pagos Digitales</option>
+                    <option value="Gerencia de Proyectos Internos IT">Gerencia de Proyectos Internos IT</option>
+                    <option value="Gerencia de Estrategia y Desarrollo de Negocios">Gerencia de Estrategia y Desarrollo de Negocios</option>
+                    <option value="Gerencia de Marketing">Gerencia de Marketing</option>
+                    <option value="Gerencia General">Gerencia General</option>
+                    <option value="Gerencia de Pagos Moviles">Gerencia de Pagos Moviles</option>
+                    <option value="Gerencia de Procesos y Riesgos">Gerencia de Procesos y Riesgos</option>
+                    <option value="Gerente de  Administracion">Gerente de  Administracion</option>
+                    <option value="Gerencia de Operaciones">Gerencia de Operaciones</option>
+                    <option value="Gerencia de Gestion de Personas">Gerencia de Gestion de Personas</option>    
+                    <option value="Gerencia de Comercial">Gerencia de Comercial</option>
+                    <option value="Gerentecia de Soporte y Operaciones IT">Gerentecia de Soporte y Operaciones IT</option>
+                    <option value="Gerentecia de Legales">Gerentecia de Legales</option>
+                    <option value="Gerencia de Proyectos Comerciales IT">Gerencia de Proyectos Comerciales IT</option>
+                    <option value="Otro">Otro</option>
                 </select>
             </div>
             <div class="col-md-2">
                 <label>Puesto:</label>
                 <select id="filtroPuesto" class="form-control" onchange="filtrarDatos()">
                     <option value="">Todos</option>
-                    <option value="Desarrollador">Desarrollador</option>
-                    <option value="Administrativo">Administrativo</option>
-                    <option value="Analista Mejora Continua Ssr">Analista Mejora Continua Ssr</option>
-                    <option value="Analista de soporte aplicativo">Analista de soporte aplicativo</option>
-                    <option value="Project Manager">Project Manager</option>
-                    <option value="Diseñadora UX/UI">Diseñadora UX/UI</option>
-                    <option value="Coordinador">Coordinador</option>
-                    <option value="Analista Onboarding">Analista Onboarding</option>
-                    <option value="Coordinador de Monitoreo">Coordinador de Monitoreo</option>
-                    <option value="Desarrollador PHP">Desarrollador PHP</option>
-                    <option value="Teleoperador">Teleoperador</option>
-                    <option value="Administrativo">Administrativo</option>
-                    <option value="Analista de Datos">Analista de Datos</option>
-                    <option value="Analista funcional">Analista funcional</option>
-                    <option value="DevOps">DevOps</option>
-                    <option value="Desarrollador Python">Desarrollador Python</option>
-                    <option value="Analista de Catálogo">Analista de Catálogo</option>
-                    <option value="Tester QA">Tester QA</option>
                     <option value="Abogada /o">Abogada /o</option>
-                    <option value="Scrum Master">Scrum Master</option>
-                    <option value="Product Owner">Product Owner</option>
                     <option value="Administrador de Base de Datos">Administrador de Base de Datos</option>
                     <option value="Administrador Linux">Administrador Linux</option>
-                    <option value="Desarrollador Full Stack">Desarrollador Full Stack</option>
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Analista de Catálogo">Analista de Catálogo</option>
                     <option value="Analista de Categoría">Analista de Categoría</option>
-                    <option value="Soporte de Agencias">Soporte de Agencias</option>
-                    <option value="Analista de experiencia de usuario">Analista de experiencia de usuario</option>
                     <option value="Analista de contabilidad">Analista de contabilidad</option>
-                    <option value="Ingeniero de datos">Ingeniero de datos</option>
+                    <option value="Analista de Datos">Analista de Datos</option>
+                    <option value="Analista de experiencia de usuario">Analista de experiencia de usuario</option>
+                    <option value="Analista de Mejora Continua Ssr.">Analista de Mejora Continua Ssr.</option>
                     <option value="Analista de Mesa de Ayuda">Analista de Mesa de Ayuda</option>
-                    <option value="Analista de seguridad informática">Analista de seguridad informática</option>
                     <option value="Analista de precios">Analista de precios</option>
-                    <option value="Supervisor /a">Supervisor /a</option>
+                    <option value="Analista de seguridad informática">Analista de seguridad informática</option>
+                    <option value="Analista de soporte aplicativo">Analista de soporte aplicativo</option>
+                    <option value="Analista funcional">Analista funcional</option>
+                    <option value="Analista Onboarding">Analista Onboarding</option>
+                    <option value="Coordinador">Coordinador</option>
+                    <option value="Coordinador de Monitoreo">Coordinador de Monitoreo</option>
+                    <option value="Desarrollador">Desarrollador</option>
+                    <option value="Desarrollador Full Stack">Desarrollador Full Stack</option>
+                    <option value="Desarrollador PHP">Desarrollador PHP</option>
+                    <option value="Desarrollador Python">Desarrollador Python</option>
+                    <option value="DevOps">DevOps</option>
+                    <option value="Diseñadora UX/UI">Diseñadora UX/UI</option>
+                    <option value="Ingeniero de datos">Ingeniero de datos</option>
+                    <option value="Product Owner">Product Owner</option>
+                    <option value="Project Manager">Project Manager</option>
+                    <option value="Scrum Master">Scrum Master</option>
+                    <option value="Soporte de Agencias">Soporte de Agencias</option>
                     <option value="Soporte Microinformático">Soporte Microinformático</option>
+                    <option value="Supervisor /a">Supervisor /a</option>
+                    <option value="Teleoperador">Teleoperador</option>
+                    <option value="Tester QA">Tester QA</option>
                     <option value="Técnico de Depósito Microinformático">Técnico de Depósito Microinformático</option>
                     <option value="Otro">Otro</option>
                 </select>
@@ -224,11 +214,9 @@
             </div>
         </div>
 
-        <!-- Lista de ingresos -->
         <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0">Lista de Ingresos</h2>
         <ul id="lista" class="list-group mt-3"></ul>
 
-        <!-- Botón de descarga -->
         <div class="text-end mt-4">
             <button class="btn btn-success" onclick="descargarExcel()">Descargar Excel</button>
         </div>
