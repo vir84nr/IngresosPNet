@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // LOGIN (FRONTEND)
 // =======================
 const usuarios = {
-    "Reconquista": "Rcq.Pnet#2026!", // Robustecida para evitar alerta de Chrome
-    "Polo": "Pl.Pnet#2026!",
-    "Calderon": "Cld.Pnet#2026!"
+    "Reconquista": "Recon1234", 
+    "Polo": "Pol1234",
+    "Calderon": "Cal1234!"
 };
 
 function login() {
