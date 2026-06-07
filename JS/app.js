@@ -1,5 +1,5 @@
 
-const API_URL = "https://bkendingresos.onrender.com";
+const API_URL = "https://bkendingresos.onrender.com/ingresos";
 
 // =======================
 //  INIT
