@@ -1,9 +1,5 @@
-// ==========================================
-// CONFIGURACIÓN DE LA URL DEL BACKEND
-// ==========================================
-// Mientras pruebes local usa "http://localhost:3000"
-// Cuando subas el backend a producción (Render, Railway, etc.), cambiás esta URL.
-const API_URL = "http://localhost:3000/ingresos";
+
+const API_URL = "https://bkendingresos.onrender.com";
 
 // =======================
 //  INIT
