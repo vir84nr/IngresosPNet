@@ -28,7 +28,7 @@
 </head>
 <body>
     
-    <div id="loginScreen" class="col-md-3  mx-auto text-center justify-content-center" >
+    <div id="loginScreen" class="col-md-3 mx-auto text-center justify-content-center" style="margin-top: 100px;">
         <h2>LOGIN</h2>
         <input type="text" id="loginUser" class="form-control mb-2" placeholder="Usuario">
         <input type="password" id="loginPass" class="form-control mb-2" placeholder="Contraseña">
@@ -71,7 +71,7 @@
                 <option value="Gerencia General">Gerencia General</option>
                 <option value="Gerencia de Pagos Moviles">Gerencia de Pagos Moviles</option>
                 <option value="Gerencia de Procesos y Riesgos">Gerencia de Procesos y Riesgos</option>
-                <option value="Gerente de  Administracion">Gerente de  Administracion</option>
+                <option value="Gerente de Administracion">Gerente de Administracion</option>
                 <option value="Gerencia de Operaciones">Gerencia de Operaciones</option>
                 <option value="Gerencia de Gestion de Personas">Gerencia de Gestion de Personas</option>    
                 <option value="Gerencia de Comercial">Gerencia de Comercial</option>
@@ -122,7 +122,7 @@
             <button class="btn btn-info btn-sm" onclick="guardarDato()">Guardar</button>
         </div>
 
-        <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0">Filtrar Datos</h2>
+        <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 20px 0 0 0;">Filtrar Datos</h2>
         <div class="row">
             <div class="col-md-3">
                 <label>Fecha de Ingreso:</label>
@@ -153,7 +153,7 @@
                     <option value="Gerencia General">Gerencia General</option>
                     <option value="Gerencia de Pagos Moviles">Gerencia de Pagos Moviles</option>
                     <option value="Gerencia de Procesos y Riesgos">Gerencia de Procesos y Riesgos</option>
-                    <option value="Gerente de  Administracion">Gerente de  Administracion</option>
+                    <option value="Gerente de Administracion">Gerente de Administracion</option>
                     <option value="Gerencia de Operaciones">Gerencia de Operaciones</option>
                     <option value="Gerencia de Gestion de Personas">Gerencia de Gestion de Personas</option>    
                     <option value="Gerencia de Comercial">Gerencia de Comercial</option>
@@ -167,7 +167,7 @@
                 <label>Puesto:</label>
                 <select id="filtroPuesto" class="form-control" onchange="filtrarDatos()">
                     <option value="">Todos</option>
-                    <option value="Abogada /o">Abogada /o</option>
+                    <option value="Abogado">Abogado</option>
                     <option value="Administrador de Base de Datos">Administrador de Base de Datos</option>
                     <option value="Administrador Linux">Administrador Linux</option>
                     <option value="Administrativo">Administrativo</option>
@@ -197,7 +197,7 @@
                     <option value="Scrum Master">Scrum Master</option>
                     <option value="Soporte de Agencias">Soporte de Agencias</option>
                     <option value="Soporte Microinformático">Soporte Microinformático</option>
-                    <option value="Supervisor /a">Supervisor /a</option>
+                    <option value="Supervisor">Supervisor</option>
                     <option value="Teleoperador">Teleoperador</option>
                     <option value="Tester QA">Tester QA</option>
                     <option value="Técnico de Depósito Microinformático">Técnico de Depósito Microinformático</option>
@@ -214,10 +214,10 @@
             </div>
         </div>
 
-        <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 0">Lista de Ingresos</h2>
+        <h2 class="text-center flex-grow-1" style="color: rgb(61, 101, 138); font-size: 2rem; margin: 20px 0 0 0;">Lista de Ingresos</h2>
         <ul id="lista" class="list-group mt-3"></ul>
 
-        <div class="text-end mt-4">
+        <div class="text-end mt-4 text-center">
             <button class="btn btn-success" onclick="descargarExcel()">Descargar Excel</button>
         </div>
     </div>
